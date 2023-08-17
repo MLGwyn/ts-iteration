@@ -18,7 +18,7 @@
 
 */
 
-import { setTextRange } from 'typescript'
+//import { setTextRange } from 'typescript'
 
 /**
  * 1) Define a function named `yelling` that takes an array of
@@ -143,8 +143,7 @@ function everyoneIsOdd(numbers: number[]): boolean {
   // Replace the code below with your own code
   const isAllOdd = (digits: number) => digits % 2 != 0
   return numbers.every(isAllOdd)
-}›
-
+}
 
 /*
  * 8) Define a function findTheNeedle that accepts an array of
@@ -153,13 +152,13 @@ function everyoneIsOdd(numbers: number[]): boolean {
  *
  * NOTE: You may *not* use the `forEach` or `for` method.
  *
- * 
+ *
  */
 
 function findTheNeedle(strings: string[]): string {
   // Replace the code below with your own code
-  const stringToFind = (word:string) => word.includes('needle')
-  return strings.find(stringToFind)
+  const stringToFind = (word: string) => word.includes('needle')
+  return strings.find(stringToFind) || ``
 }
 
 /*
@@ -173,7 +172,8 @@ function findTheNeedle(strings: string[]): string {
 
 function findTheNeedleIndex(strings: string[]): number {
   // Replace the code below with your own code
-  return 42
+  const indexToFind = (word: string) => word.includes('needle')
+  return strings.findIndex(indexToFind)
 }
 
 /*
@@ -187,7 +187,9 @@ function findTheNeedleIndex(strings: string[]): number {
 
 function someoneToLove(strings: string[]): boolean {
   // Replace the code below with your own code
-  return false
+
+  const isThisLong = (word: string) => word.length == 4
+  return strings.some(isThisLong)
 }
 
 /*
@@ -226,7 +228,10 @@ function someoneToLove(strings: string[]): boolean {
 type Hobbies = Record<string, { title: string; description: string }>
 function objectKeys(objectOfHobbies: Hobbies): string[] {
   // Replace the code below with your own code
-  return []
+  const combined = Object.entries(objectOfHobbies).map(
+    ([key, hobby]) => `${key} - ${hobby.title}`
+  )
+  return combined
 }
 
 /**
