@@ -18,6 +18,8 @@
 
 */
 
+import { setTextRange } from 'typescript'
+
 /**
  * 1) Define a function named `yelling` that takes an array of
  * strings as an argument and returns a new array with all
@@ -29,7 +31,8 @@
 
 function yelling(words: string[]): string[] {
   // Replace the code below with your own code
-  return []
+  const uppercased = words.map(word => word.toUpperCase())
+  return uppercased
 }
 
 /**
@@ -44,7 +47,8 @@ function yelling(words: string[]): string[] {
 
 function doubleTrouble(numbers: number[]): number[] {
   // Replace the code below with your own code
-  return []
+  const doubled = numbers.map(number => number * 2)
+  return doubled
 }
 
 /*
@@ -58,7 +62,10 @@ function doubleTrouble(numbers: number[]): number[] {
 
 function stringyIndexes(strings: string[]): string[] {
   // Replace the code below with your own code
-  return []
+  const newString = strings.map(
+    (string, index) => `${string} is at index ${index}`
+  )
+  return newString
 }
 
 /*
@@ -71,7 +78,8 @@ function stringyIndexes(strings: string[]): string[] {
 
 function onlyTheEvenSurvive(numbers: number[]): number[] {
   // Replace the code below with your own code
-  return []
+  const evenOnly = numbers.filter(number => number % 2 == 0)
+  return evenOnly
 }
 
 /*
@@ -84,7 +92,8 @@ function onlyTheEvenSurvive(numbers: number[]): number[] {
 
 function onlyTheEvenIndexedSurvive(numbers: number[]): number[] {
   // Replace the code below with your own code
-  return []
+  const evenIndexOnly = numbers.filter((number, index) => index % 2 == 0)
+  return evenIndexOnly
 }
 
 /*
@@ -109,12 +118,19 @@ type Movie = {
   year: number
   score: number
 }
-function bestMoviesOfTheYear(movieObjectArray: Movie[], year: number): string[] {
+function bestMoviesOfTheYear(
+  movieObjectArray: Movie[],
+  year: number
+): string[] {
   // Replace the code below with your own code
-  return []
+  const movies = movieObjectArray
+    .filter(movie => movie.year == year && movie.score > 90)
+    .map(movie => movie.name)
+  return movies
 }
 
 /*
+
  * 7) Define a function everyoneIsOdd that accepts an array of
  * numbers and returns true if every element of the array is
  * odd.
@@ -125,8 +141,10 @@ function bestMoviesOfTheYear(movieObjectArray: Movie[], year: number): string[] 
 
 function everyoneIsOdd(numbers: number[]): boolean {
   // Replace the code below with your own code
-  return false
-}
+  const isAllOdd = (digits: number) => digits % 2 != 0
+  return numbers.every(isAllOdd)
+}›
+
 
 /*
  * 8) Define a function findTheNeedle that accepts an array of
@@ -135,11 +153,13 @@ function everyoneIsOdd(numbers: number[]): boolean {
  *
  * NOTE: You may *not* use the `forEach` or `for` method.
  *
+ * 
  */
 
 function findTheNeedle(strings: string[]): string {
   // Replace the code below with your own code
-  return ''
+  const stringToFind = (word:string) => word.includes('needle')
+  return strings.find(stringToFind)
 }
 
 /*
